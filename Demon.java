@@ -6,29 +6,32 @@
  * @author Jessica Nagar
  * @version 04.05.2021
  */
-public class Demon
+public class Demon extends Creature
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // instance variables
+    private static final int MAX_DEMON_HP = 10;
+    private static final int MIN_DEMON_HP = 10;
+    private static final int MAX_DEMON_STR = 10;
+    private static final int MIN_DEMON_STR = 10;
 
     /**
-     * Constructor for objects of class Demon
+     * Constructor for objects of class Demon -
+     * Note that the calling class does not need to know anything about the 
+     * requirements of demon minimum and maximum values
+     * 
+     * The instantiating class asks for a Demon and the demon class is responsible for
+     * return a Demon object with values in the appropriate range
+     * 
      */
-    public Demon()
+    public Demon(int hp, int str)
     {
-        // initialise instance variables
-        x = 0;
+        
+          
     }
+    
+    
+    // attack() - not overridden because Humans generate basic damage
+    // takeDamage(int) - not overridden, because Humans take all damage assigned to them
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }
