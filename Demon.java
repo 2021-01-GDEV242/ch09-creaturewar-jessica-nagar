@@ -30,7 +30,22 @@ public class Demon extends Creature
     }
     
     
-    // attack() - not overridden because Humans generate basic damage
+    public int attack() 
+    {
+        int attack = damage();
+        
+        var d = Math.random();
+        if(d < 0.05)
+        {
+            attack = attack + 50;
+        }
+        else if (d < 0.95)
+        {
+            attack = attack;
+        }
+        
+        return attack;
+    }
     // takeDamage(int) - not overridden, because Humans take all damage assigned to them
 
     
