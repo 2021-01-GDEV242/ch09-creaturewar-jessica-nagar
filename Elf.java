@@ -39,9 +39,10 @@ public class Elf extends Creature
     }
     
     
-    public void attack() 
+    public int attack() 
     {
         //damage method
+        return 0;
     }
     
     // takeDamage(int) - not overridden, because Elf take all damage assigned to them
