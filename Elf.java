@@ -41,8 +41,19 @@ public class Elf extends Creature
     
     public int attack() 
     {
-        //damage method
-        return 0;
+        int attack = damage();
+        
+        var d = Math.random();
+        if(d < 0.1)
+        {
+            attack = attack * 2;
+        }
+        else if (d < 0.9)
+        {
+            attack = attack;
+        }
+        
+        return attack;
     }
     
     // takeDamage(int) - not overridden, because Elf take all damage assigned to them
