@@ -36,18 +36,28 @@ public abstract class Creature
      * @param str the strength of the creature, used to calculate damage
      * @param hp the health of the creature at the start of the simulation, and the current health levels during battle
      */
-    public Creature (int str, int hp) {
-       //implement this
+    public Creature (int strInput, int hpInput) {
+       str = strInput;
+       hp = hpInput;
     }
     
+    /**
+     * Calculates the damage of the attack.
+     * @return a value between 1 and str to be used to cause damage to another creature
+     */
+    public int damage()
+    {
+        int attack = Randomizer.nextInt(str-1);
+        return attack;
+    }
     
     /**
      * Allows a creature to determine how much damage it is causing in this round of battle
      * @return a value between 1 and str to be used to cause damage to another creature
      */
     public int attack(){
-        // TODO: implement a damage method
-        return 0;
+        int attack = damage();
+        return attack;
     }
     
     
@@ -56,8 +66,14 @@ public abstract class Creature
      * @return true when current hit point level is greater than zero
      */
     public boolean isAlive() {
-        // TODO: implement a method to report if the creature yet lives
-        return false; //change this
+        if(hp > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     /**
@@ -65,8 +81,14 @@ public abstract class Creature
      * @return true when current hit point level is less than or equal to zero
      */
     public boolean isKnockedOut() {
-        //TODO: implement a method to report if the creature has been killed
-        return false; //change this
+        if(hp <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     
@@ -76,7 +98,8 @@ public abstract class Creature
      * @param damage value to remove from hit point count
      */
     public void takeDamage(int damage) {
-        // TODO: implement this
+        damage = damage();
+        hp = hp - damage;
     }
     
 }
